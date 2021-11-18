@@ -10,18 +10,15 @@ class UserManager(BaseUserManager):
         """Create and save a new user"""
         user = self.model(email=self.normalize_email(email), **extra_fields)
         user.set_password(password)
-        user.save(using=self._db)
-        
+        user.save(using=self._db)     
         return user
 
-class User(AbstractBaseUser,PermissionsMixin):
+
+class User(AbstractBaseUser, PermissionsMixin):
     """Custom User model that supports email"""
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-    
-    objects = UserManager()
-    
+    is_staff = models.BooleanField(default=False) 
+    objects = UserManager() 
     USERNAME_FIELD = "email"
-        
