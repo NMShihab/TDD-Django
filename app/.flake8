@@ -1,6 +1,6 @@
 [flake8]
 
-ignore = W291, W292, W293
+ignore = W291, W292, W293, E122
 exclude = 
     migrations,
     __pycache__,
