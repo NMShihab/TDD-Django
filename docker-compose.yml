@@ -19,12 +19,13 @@ services:
       - DB_NAME=app
       - DB_USER=postgres
       - DB_PASS=password@123
+      - PORT=5432
 
     depends_on:
       - db
 
   db:
-    image: postgres:11-alpine
+    image: postgres:12-alpine
     environment:
       - POSTGRES_DB=app
       - POSTGRES_USER=postgres
